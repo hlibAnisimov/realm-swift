@@ -717,8 +717,7 @@ id RLMDynamicGetByName(__unsafe_unretained RLMObjectBase *const obj,
                        __unsafe_unretained NSString *const propName) {
     RLMProperty *prop = obj->_objectSchema[propName];
     if (!prop) {
-        @throw RLMException(@"Invalid property name '%@' for class '%@'.",
-                            propName, obj->_objectSchema.className);
+        return nil;
     }
     return RLMDynamicGet(obj, prop);
 }
